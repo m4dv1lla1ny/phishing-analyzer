@@ -1,0 +1,23 @@
+Return-Path: <bounce@example.com>
+Received: from mail.example.com (mail.example.com [203.0.113.10])
+    by mx.recipient.com (Postfix) with ESMTPS id ABC123
+    for <alice@recipient.com>; Mon, 06 Jul 2026 09:15:22 -0500 (CDT)
+Received: from localhost (localhost [127.0.0.1])
+    by mail.example.com (Postfix) with ESMTP id DEF456;
+    Mon, 06 Jul 2026 14:15:20 +0000 (UTC)
+From: "Example Support" <support@example.com>
+To: alice@recipient.com
+Reply-To: no-reply@mail.example.com
+Subject: Your account statement is ready
+Date: Mon, 06 Jul 2026 14:15:20 +0000
+Message-ID: <20260706141520.DEF456@example.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+Hello Alice,
+
+Your latest account statement is now available. Please sign in to
+review it.
+
+Thanks,
+Example Support
