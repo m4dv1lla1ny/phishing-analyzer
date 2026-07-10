@@ -15,3 +15,10 @@ phishing-analyzer = "phishing_analyzer.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.optional-dependencies]
+dev = ["pytest.>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
