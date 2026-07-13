@@ -5,7 +5,7 @@ from phishing_analyzer.received import ReceivedHop, parse_received_chain
 from phishing_analyzer.parser import load_email
 from phishing_analyzer.headers import extract_headers
 from phishing_analyzer.corpus import scan_directory
-
+from phishing_analyzer.findings import analyze_headers
 
 
 def main():
@@ -78,6 +78,7 @@ def _run_single(path: Path, show_all: bool):
     print(f"{'Date:':<13} {headers.date}")
     print(f"{'Message-ID:':<13} {headers.message_id}")
 
+    
     hops = parse_received_chain(msg)
     print(f"\nReceived chain ({len(hops)} hop(s), earliest first):")
     if not hops: 
@@ -85,6 +86,17 @@ def _run_single(path: Path, show_all: bool):
     for hop in hops:
         ts = hop.timestamp.isoformat() if hop.timestamp else "unknown time"
         print(f" [{hop.index}] from {hop.from_host} by {hop.by_host} @ {ts}")
+
+    
+    findings = analyze_headers(headers)
+    print(f"\nFindings ({len(findings)}):")
+    if not findings:
+        print(" (none)")
+    for f in findings:
+        print(f" [{f.severity.value.upper()}] {f.description}")
+        if f.evidence:
+            print(f"      evidence: {f.evidence}")
+            
 
 
 def _print_addresses(label, addresses):
