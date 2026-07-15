@@ -1,0 +1,9 @@
+Return-Path: <x@attacker.example>
+From: "billing@microsoft.com" <x@attacker.example>
+To: victim@recipient.com
+Subject: Invoice attached
+Date: Mon, 06 Jul 2026 08:02:10 +0000
+Message-ID: <zz@attacker.example>
+
+See attached invoice.
+
