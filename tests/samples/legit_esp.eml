@@ -1,0 +1,10 @@
+Return-Path: <bounce@mail.example.com>
+From: "Example News" <news@example.com>
+To: alice@recipient.com
+Subject: Weekly digest
+Date: Mon, 06 Jul 2026 08:02:10 +0000
+Message-ID: <0102018f.abc123@mailer-service.example.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+This week's news.

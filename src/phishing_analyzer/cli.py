@@ -5,7 +5,7 @@ from phishing_analyzer.received import ReceivedHop, parse_received_chain
 from phishing_analyzer.parser import load_email
 from phishing_analyzer.headers import extract_headers
 from phishing_analyzer.corpus import scan_directory
-from phishing_analyzer.findings import analyze_headers
+from phishing_analyzer.findings import analyze_headers, summarize
 
 
 def main():
@@ -89,13 +89,18 @@ def _run_single(path: Path, show_all: bool):
 
     
     findings = analyze_headers(headers)
-    print(f"\nFindings ({len(findings)}):")
+    counts = summarize(findings)
+    breakdown = ", ".join(f"{n} {label}" for label, n in counts.items() if n)
+    header_line = f"\nFidnings ({len(findings)})"
+    if breakdown:
+        header_line += f" - {breakdown}"
+    print(header_line + ";")
     if not findings:
         print(" (none)")
     for f in findings:
-        print(f" [{f.severity.value.upper()}] {f.description}")
+        print(f" [{f.severity.value.upper():<6}] {f.description}")
         if f.evidence:
-            print(f"      evidence: {f.evidence}")
+            print(f"        evidence: {f.evidence}")
             
 
 
