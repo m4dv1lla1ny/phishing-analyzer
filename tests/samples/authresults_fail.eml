@@ -1,0 +1,12 @@
+Authentication-Results: mx.recipient.com;
+ spf=pass smtp.mailfrom=bounce@example.com;
+ dkim=fail header.d=example.com header.s=sel1;
+ dmarc=none header.from=example.com
+Return-Path: <bounce@example.com>
+From: "Example" <news@example.com>
+To: alice@recipient.com
+Subject: Report
+Date: Mon, 06 Jul 2026 08:02:10 +0000
+Message-ID: <a1@example.com>
+
+Body.
